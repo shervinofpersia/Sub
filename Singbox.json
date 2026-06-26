@@ -4,8 +4,14 @@
   },
   "dns": {
     "servers": [
-      "https://dns.google/dns-query",
-      "https://cloudflare-dns.com/dns-query"
+      {
+        "tag": "google",
+        "address": "https://dns.google/dns-query"
+      },
+      {
+        "tag": "cloudflare",
+        "address": "https://cloudflare-dns.com/dns-query"
+      }
     ]
   },
   "inbounds": [

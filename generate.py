@@ -27,8 +27,7 @@ outbounds = [
         "outbounds": [f"{remark}-{ip}" for ip in ips],
         "url": "http://www.gstatic.com/generate_204",
         "interval": "5m",
-        "tolerance": 50,
-        "interrupt_exist_connection": False
+        "tolerance": 50
     },
     {"type": "direct", "tag": "direct"},
     {"type": "block", "tag": "block"},
@@ -58,14 +57,8 @@ config = {
     "log": {"level": "info"},
     "dns": {
         "servers": [
-            {
-                "tag": "google",
-                "address": "https://dns.google/dns-query"
-            },
-            {
-                "tag": "cloudflare",
-                "address": "https://cloudflare-dns.com/dns-query"
-            }
+            {"tag": "google", "address": "https://dns.google/dns-query"},
+            {"tag": "cloudflare", "address": "https://cloudflare-dns.com/dns-query"}
         ]
     },
     "inbounds": [

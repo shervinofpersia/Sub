@@ -56,7 +56,18 @@ for ip in ips:
 
 config = {
     "log": {"level": "info"},
-    "dns": {"servers": ["https://dns.google/dns-query", "https://cloudflare-dns.com/dns-query"]},
+    "dns": {
+        "servers": [
+            {
+                "tag": "google",
+                "address": "https://dns.google/dns-query"
+            },
+            {
+                "tag": "cloudflare",
+                "address": "https://cloudflare-dns.com/dns-query"
+            }
+        ]
+    },
     "inbounds": [
         {
             "type": "tun",

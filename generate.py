@@ -18,13 +18,12 @@ pbk = "IdqrygjwHBEMCOamBl7a504TVk6uMAtTRj0xLWcFcxY"
 sid = "e3d38cee79d4f94c"
 sni = "storage.yandex.net"
 port = 8443
-remark = "SHEN"  # ساده شده
 
 outbounds = [
     {
         "type": "urltest",
         "tag": "auto",
-        "outbounds": [f"{remark}-{ip}" for ip in ips],
+        "outbounds": [f"SHEN-{ip}" for ip in ips],
         "url": "http://www.gstatic.com/generate_204",
         "interval": "5m",
         "tolerance": 50
@@ -36,7 +35,7 @@ outbounds = [
 for ip in ips:
     outbounds.append({
         "type": "vless",
-        "tag": f"{remark}-{ip}",
+        "tag": f"SHEN-{ip}",
         "server": f"45.195.137.{ip}",
         "server_port": port,
         "uuid": uuid,
@@ -60,18 +59,8 @@ config = {
     "log": {"level": "info"},
     "dns": {
         "servers": [
-            {
-                "tag": "google",
-                "address": "https://dns.google/dns-query",
-                "address_strategy": "ipv4_only",
-                "strategy": "ipv4_only"
-            },
-            {
-                "tag": "cloudflare",
-                "address": "https://cloudflare-dns.com/dns-query",
-                "address_strategy": "ipv4_only",
-                "strategy": "ipv4_only"
-            }
+            {"tag": "google", "address": "https://dns.google/dns-query"},
+            {"tag": "cloudflare", "address": "https://cloudflare-dns.com/dns-query"}
         ]
     },
     "inbounds": [
@@ -79,9 +68,7 @@ config = {
             "type": "tun",
             "tag": "tun-in",
             "inet4_address": "172.19.0.1/30",
-            "auto_route": True,
-            "strict_route": True,
-            "sniff": True
+            "auto_route": True
         },
         {
             "type": "mixed",
@@ -96,12 +83,11 @@ config = {
             {"protocol": "dns", "action": "hijack-dns"},
             {"clash_mode": "direct", "outbound": "direct"},
             {"clash_mode": "block", "outbound": "block"}
-        ],
-        "auto_detect_interface": True
+        ]
     }
 }
 
 with open("Singbox.json", "w", encoding="utf-8") as f:
-    json.dump(config, f, indent=2, ensure_ascii=False)
+    json.dump(config, f, indent=2, ensure_ascii=True)
 
 print("✅ Singbox.json generated successfully")

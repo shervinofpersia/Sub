@@ -18,7 +18,7 @@ pbk = "IdqrygjwHBEMCOamBl7a504TVk6uMAtTRj0xLWcFcxY"
 sid = "e3d38cee79d4f94c"
 sni = "storage.yandex.net"
 port = 8443
-remark = "☬SHΞN™🪽"
+remark = "SHEN"  # ساده شده
 
 outbounds = [
     {
@@ -44,6 +44,10 @@ for ip in ips:
         "tls": {
             "enabled": True,
             "server_name": sni,
+            "utls": {
+                "enabled": True,
+                "fingerprint": "chrome"
+            },
             "reality": {
                 "enabled": True,
                 "public_key": pbk,
@@ -56,8 +60,18 @@ config = {
     "log": {"level": "info"},
     "dns": {
         "servers": [
-            {"tag": "google", "address": "https://dns.google/dns-query"},
-            {"tag": "cloudflare", "address": "https://cloudflare-dns.com/dns-query"}
+            {
+                "tag": "google",
+                "address": "https://dns.google/dns-query",
+                "address_strategy": "ipv4_only",
+                "strategy": "ipv4_only"
+            },
+            {
+                "tag": "cloudflare",
+                "address": "https://cloudflare-dns.com/dns-query",
+                "address_strategy": "ipv4_only",
+                "strategy": "ipv4_only"
+            }
         ]
     },
     "inbounds": [

@@ -271,10 +271,6 @@
       "tag": "block"
     },
     {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
       "type": "vless",
       "tag": "☬SHΞN™🪽-2",
       "server": "45.195.137.2",
@@ -4053,7 +4049,7 @@
     "rules": [
       {
         "protocol": "dns",
-        "outbound": "dns-out"
+        "action": "hijack-dns"
       },
       {
         "clash_mode": "direct",

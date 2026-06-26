@@ -30,8 +30,7 @@ outbounds = [
         "tolerance": 50
     },
     {"type": "direct", "tag": "direct"},
-    {"type": "block", "tag": "block"},
-    {"type": "dns", "tag": "dns-out"}
+    {"type": "block", "tag": "block"}
 ]
 
 for ip in ips:
@@ -80,7 +79,7 @@ config = {
     "outbounds": outbounds,
     "route": {
         "rules": [
-            {"protocol": "dns", "outbound": "dns-out"},
+            {"protocol": "dns", "action": "hijack-dns"},
             {"clash_mode": "direct", "outbound": "direct"},
             {"clash_mode": "block", "outbound": "block"}
         ],

@@ -6,15 +6,11 @@
     "servers": [
       {
         "tag": "google",
-        "address": "https://dns.google/dns-query",
-        "address_strategy": "ipv4_only",
-        "strategy": "ipv4_only"
+        "address": "https://dns.google/dns-query"
       },
       {
         "tag": "cloudflare",
-        "address": "https://cloudflare-dns.com/dns-query",
-        "address_strategy": "ipv4_only",
-        "strategy": "ipv4_only"
+        "address": "https://cloudflare-dns.com/dns-query"
       }
     ]
   },
@@ -23,9 +19,7 @@
       "type": "tun",
       "tag": "tun-in",
       "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "sniff": true
+      "auto_route": true
     },
     {
       "type": "mixed",
@@ -4951,7 +4945,6 @@
         "clash_mode": "block",
         "outbound": "block"
       }
-    ],
-    "auto_detect_interface": true
+    ]
   }
 }
